@@ -1,4 +1,4 @@
-# Pokémon Polished Crystal
+# Pokémon Dusk Shade
 
 This is a custom Pokémon game based on [the Pokémon Crystal disassembly](https://github.com/pret/pokecrystal).
 
