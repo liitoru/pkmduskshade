@@ -1,6 +1,6 @@
 # Pokémon Dusk Shade
 
-(Built using Polished Crystal)
+## (Built using Polished Crystal)
 
 This is a custom Pokémon game based on [the Pokémon Crystal disassembly](https://github.com/pret/pokecrystal).
 
