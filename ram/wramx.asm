@@ -1277,6 +1277,7 @@ wVioletGymSceneID:: db
 wWillsRoomSceneID:: db
 wWiseTriosRoomSceneID:: db
 wYellowForestSceneID:: db
+wRoute30SceneID:: db
 
 ; fight counts
 wJackFightCount::    db
@@ -1335,7 +1336,7 @@ wNeededMonPalLight:: db ; for SPRITE_MON_ICON two-nybble palettes, stores the li
 wNeededPalType:: db ; 0 = normal palette, non-zero = mon two-nybble palette
 wLoadedObjPalType:: db ; bitmask: bit N set = slot N is a mon palette, clear = normal palette
 
-	ds 47 ; unused
+	ds 46 ; unused
 
 wCandyAmounts::
 	table_width 1

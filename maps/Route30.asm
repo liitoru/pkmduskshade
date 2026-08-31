@@ -1,5 +1,8 @@
 Route30_MapScriptHeader:
 	def_scene_scripts
+	scene_const SCENE_ROUTE30_DEMO_GIFT
+	scene_const SCENE_ROUTE30_RIVAL
+	scene_const SCENE_ROUTE30_NOOP
 
 	def_callbacks
 
@@ -8,6 +11,8 @@ Route30_MapScriptHeader:
 	warp_event 28,  3, MR_POKEMONS_HOUSE, 1
 
 	def_coord_events
+	coord_event  3, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift1
+	coord_event  4, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift2
 
 	def_bg_events
 	bg_event  2, 20, BGEVENT_JUMPTEXT, Route30SignText
@@ -19,18 +24,66 @@ Route30_MapScriptHeader:
 	bg_event 17, 21, BGEVENT_JUMPTEXT, BerryMastersHouseSignText
 
 	def_object_events
-	object_event 19, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, YoungsterJoey_ImportantBattleScript, EVENT_ROUTE_30_BATTLE
-	pokemon_event 19, 14, PIDGEY, SPRITEMOVEDATA_POKEMON, -1, PAL_MON_BROWN, ClearText, EVENT_ROUTE_30_BATTLE
-	object_event 19, 15, SPRITE_RATTATA_BACK, SPRITEMOVEDATA_RATTATA_BACK, 0, 0, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
+	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_MON_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
+	object_event  4, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_MON_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
+	object_event 32, 24, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, -1
 	object_event 35,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJoey, EVENT_ROUTE_30_YOUNGSTER_JOEY
 	object_event 22,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterMikey, -1
 	object_event 13,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBug_catcherDon, -1
 	object_event  4,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, PAL_NPC_ORANGE, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30YoungsterText, -1
 	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30CooltrainerFText, -1
+	object_event  5, 20, SPRITE_OAK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Gift4, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
 	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
 	fruittree_event 19,  1, FRUITTREE_ROUTE_30_2, PECHA_BERRY, PAL_NPC_PINK
 	itemball_event 37,  9, ANTIDOTE, 1, EVENT_ROUTE_30_ANTIDOTE
+
+Route30Gift1:
+	applyonemovement PLAYER, step_right
+Route30Gift2:
+	turnobject PLAYER, RIGHT
+Route30Gift3:
+	opentext
+	checkscene
+	iftruefwd .Skip
+	writetext Route30GiftText
+	waitbutton
+	setscene SCENE_ROUTE30_RIVAL
+	givepoke BAYLEEF, PLAIN_FORM, 30, ORAN_BERRY
+	givepoke PERSIAN, PLAIN_FORM, 30, ORAN_BERRY
+	givepoke GROWLITHE, HISUIAN_FORM, 30, ORAN_BERRY
+	readvar VAR_PLAYERGENDER
+	assert PLAYER_MALE == 0
+	iffalsefwd .MalePokemon
+	givepoke RATICATE, PLAIN_FORM, 30, ORAN_BERRY
+	sjumpfwd .FinishGift
+
+.MalePokemon
+	givepoke FURRET, PLAIN_FORM, 30, ORAN_BERRY
+.FinishGift
+	verbosegiveitem POKE_BALL, 5
+	closetext
+	end
+
+.Skip
+	writetext Route30GiftText2
+	waitbutton
+	closetext
+	end
+
+Route30Gift4:
+	faceplayer
+	sjump Route30Gift3
+
+Route30GiftText:
+	text "You need some"
+	line "#mon for your"
+	cont "protection!"
+	done
+
+Route30GiftText2:
+	text "Good luck!"
+	done
 
 	object_const_def
 	const ROUTE30_YOUNGSTER1
@@ -294,11 +347,12 @@ Route30CooltrainerFText:
 	done
 
 Route30SignText:
-	text "Route 30"
-
-	para "Cherrygrove City -"
-	line "Violet City"
+	text "Route 72"
 	done
+
+;	para "Cherrygrove City -"
+;	line "Violet City"
+;	done
 
 MrPokemonsHouseDirectionsSignText:
 	text "Mr.#mon's House"
@@ -363,4 +417,14 @@ YoungsterJoeyText_GiveHPUpAfterBattle:
 
 	para "I'm going to get"
 	line "tougher too."
+	done
+
+Route30PokefanMText:
+	text "Sorry, but this"
+	line "path is closed."
+	done
+
+Route30RivalText:
+	text "You won't get so"
+	line "lucky next time!"
 	done

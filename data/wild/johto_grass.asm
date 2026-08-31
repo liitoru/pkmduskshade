@@ -1375,29 +1375,29 @@
 	def_grass_wildmons ROUTE_30
 	db 10 percent ; encounter rate
 	; morn
-	wildmon 3, LEDYBA
-	wildmon 3, CATERPIE
-	wildmon 4, CATERPIE
-	wildmon 4, PIDGEY
-	wildmon 3, WEEDLE
-	wildmon 4, HOPPIP
-	wildmon 4, HOPPIP
+	wildmon 30, LEDIAN
+	wildmon 30, BUTTERFREE
+	wildmon 31, BUTTERFREE
+	wildmon 31, PIDGEOTTO
+	wildmon 30, BEEDRILL
+	wildmon 31, JUMPLUFF
+	wildmon 31, JUMPLUFF
 	; day
-	wildmon 3, PIDGEY
-	wildmon 3, CATERPIE
-	wildmon 4, CATERPIE
-	wildmon 4, PIDGEY
-	wildmon 3, WEEDLE
-	wildmon 4, HOPPIP
-	wildmon 4, HOPPIP
+	wildmon 30, PIDGEOTTO
+	wildmon 30, BUTTERFREE
+	wildmon 31, BUTTERFREE
+	wildmon 31, PIDGEOTTO
+	wildmon 30, BEEDRILL
+	wildmon 31, JUMPLUFF
+	wildmon 31, JUMPLUFF
 	; nite
-	wildmon 3, SPINARAK
-	wildmon 3, HOOTHOOT
-	wildmon 4, POLIWAG
-	wildmon 4, HOOTHOOT
-	wildmon 3, ZUBAT
-	wildmon 4, HOOTHOOT
-	wildmon 4, HOOTHOOT
+	wildmon 30, ARIADOS
+	wildmon 30, NOCTOWL
+	wildmon 31, POLIWHIRL
+	wildmon 31, NOCTOWL
+	wildmon 30, GOLBAT
+	wildmon 31, NOCTOWL
+	wildmon 31, NOCTOWL
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_31
