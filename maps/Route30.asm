@@ -13,6 +13,8 @@ Route30_MapScriptHeader:
 	def_coord_events
 	coord_event  3, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift1
 	coord_event  4, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift2
+	coord_event 32, 20, SCENE_ROUTE30_RIVAL, Route30Rival1
+	coord_event 33, 20, SCENE_ROUTE30_RIVAL, Route30Rival2
 
 	def_bg_events
 	bg_event  2, 20, BGEVENT_JUMPTEXT, Route30SignText
@@ -24,14 +26,14 @@ Route30_MapScriptHeader:
 	bg_event 17, 21, BGEVENT_JUMPTEXT, BerryMastersHouseSignText
 
 	def_object_events
-	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_MON_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
-	object_event  4, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_MON_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
-	object_event 32, 24, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, -1
-	object_event 35,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJoey, EVENT_ROUTE_30_YOUNGSTER_JOEY
-	object_event 22,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterMikey, -1
+	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
+	object_event  4, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
+	object_event 32, 25, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, EVENT_ROUTE_30_YOUNGSTER_JOEY
+	object_event 35,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, TrainerYoungsterJoey, -1
+	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterMikey, -1
 	object_event 13,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBug_catcherDon, -1
-	object_event  4,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, PAL_NPC_ORANGE, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30YoungsterText, -1
-	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30CooltrainerFText, -1
+	object_event  3,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 2, -1, PAL_NPC_ORANGE, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30YoungsterText, -1
+	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerLassKrise2, -1
 	object_event  5, 20, SPRITE_OAK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Gift4, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
 	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
@@ -50,7 +52,7 @@ Route30Gift3:
 	waitbutton
 	setscene SCENE_ROUTE30_RIVAL
 	givepoke BAYLEEF, PLAIN_FORM, 30, ORAN_BERRY
-	givepoke PERSIAN, PLAIN_FORM, 30, ORAN_BERRY
+	givepoke SEAKING, PLAIN_FORM, 30, ORAN_BERRY
 	givepoke GROWLITHE, HISUIAN_FORM, 30, ORAN_BERRY
 	readvar VAR_PLAYERGENDER
 	assert PLAYER_MALE == 0
@@ -61,7 +63,7 @@ Route30Gift3:
 .MalePokemon
 	givepoke FURRET, PLAIN_FORM, 30, ORAN_BERRY
 .FinishGift
-	verbosegiveitem POKE_BALL, 5
+	verbosegiveitem GREAT_BALL, 5
 	closetext
 	end
 
@@ -69,7 +71,17 @@ Route30Gift3:
 	writetext Route30GiftText2
 	waitbutton
 	closetext
-	end
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	jumpthistext
+
+	text "Good luck!"
+	done
 
 Route30Gift4:
 	faceplayer
@@ -82,13 +94,75 @@ Route30GiftText:
 	done
 
 Route30GiftText2:
-	text "Good luck!"
+	text "I'll heal your"
+	line "#mon!"
 	done
 
 	object_const_def
 	const ROUTE30_YOUNGSTER1
 	const ROUTE30_PIDGEY
-	const ROUTE30_RATTATA
+	const ROUTE30_RIVAL
+
+Route30Rival1:
+	moveobject ROUTE30_RIVAL, 33, 25
+	appear ROUTE30_RIVAL
+	showemote EMOTE_SHOCK, PLAYER, 15
+	special Special_FadeOutMusic
+	pause 15
+	applymovement ROUTE30_RIVAL, Route30RivalMovement1
+	turnobject PLAYER, RIGHT
+	sjumpfwd FinishRival
+Route30Rival2:
+	showemote EMOTE_SHOCK, PLAYER, 15
+	appear ROUTE30_RIVAL
+	special Special_FadeOutMusic
+	pause 15
+	applymovement ROUTE30_RIVAL, Route30RivalMovement2
+	turnobject PLAYER, LEFT
+FinishRival:
+	playmusic MUSIC_RIVAL_ENCOUNTER
+	showtext Route30RivalText
+	winlosstext Route30RivalWinText, Route30RivalLossText
+	setlasttalked ROUTE30_RIVAL
+	loadtrainer RIVAL0, 1
+	startbattle
+	reloadmap
+	special DeleteSavedMusic
+	playmusic MUSIC_RIVAL_AFTER
+	showtext Route30RivalText1
+	turnobject PLAYER, UP
+	applymovement ROUTE30_RIVAL, Route30RivalMovement3
+	disappear ROUTE30_RIVAL
+	playmusic MUSIC_ROUTE_30
+	setscene SCENE_ROUTE30_NOOP
+	end
+
+Route30RivalMovement1:
+	step_up
+	step_up
+	step_up
+	step_up
+	step_up
+	turn_head_left
+	step_end
+
+Route30RivalMovement2:
+	step_up
+	step_up
+	step_up
+	step_up
+	step_up
+	turn_head_right
+	step_end
+
+Route30RivalMovement3:
+	step_up
+	step_up
+	step_up
+	step_up
+	step_up
+	step_up
+	step_end
 
 YoungsterJoey_ImportantBattleScript:
 	waitsfx
@@ -99,7 +173,7 @@ YoungsterJoey_ImportantBattleScript:
 	pause 30
 	closetext
 	playsound SFX_TACKLE
-	applymovement ROUTE30_RATTATA, Route30_JoeysRattataAttacksMovement
+	applymovement ROUTE30_PIDGEY, Route30_JoeysRattataAttacksMovement
 	opentext
 	faceplayer
 	writetext Text_ThisIsABigBattle
@@ -112,7 +186,12 @@ YoungsterJoey_ImportantBattleScript:
 	end
 
 TrainerYoungsterJoey:
-	trainer YOUNGSTER, JOEY1, EVENT_BEAT_YOUNGSTER_JOEY, YoungsterJoey1SeenText, YoungsterJoey1BeatenText, 0, .Script
+	generictrainer YOUNGSTER, JOEY1, EVENT_BEAT_YOUNGSTER_JOEY, YoungsterJoey1SeenText, YoungsterJoey1BeatenText
+
+	text "I should stop"
+	line "judging people by"
+	cont "how they look."
+	done
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_YOUNGSTER_JOEY
@@ -233,6 +312,26 @@ TrainerYoungsterJoey:
 	setevent EVENT_JOEY_HP_UP
 	jumpstd packfullm
 
+GenericTrainerLassKrise2:
+	generictrainer LASS, KRISE, EVENT_BEAT_LASS_KRISE, LassKrisSeenText2, LassKriseBeatenText2
+
+	text "Give your #mon"
+	line "berries and see"
+	cont "what they can do!"
+	done
+
+LassKrisSeenText2:
+	text "Berries are really"
+	line "really useful!"
+
+	para "They're also tasty!"
+	done
+
+LassKriseBeatenText2:
+	text "That left a sour"
+	line "taste in my mouth!"
+	done
+
 GenericTrainerYoungsterMikey:
 	generictrainer YOUNGSTER, MIKEY, EVENT_BEAT_YOUNGSTER_MIKEY, YoungsterMikeySeenText, YoungsterMikeyBeatenText
 
@@ -330,12 +429,10 @@ Bug_catcherDonBeatenText:
 	done
 
 Route30YoungsterText:
-	text "These train tracks"
-	line "lead all the way"
-	cont "to Goldenrod City!"
-
-	para "I'm having fun"
-	line "balancing on them."
+	text "I don't know why"
+	line "there's a PC out"
+	cont "here I'm just a"
+	cont "kid!"
 	done
 
 Route30CooltrainerFText:
@@ -425,6 +522,35 @@ Route30PokefanMText:
 	done
 
 Route30RivalText:
+	text "Hold it."
+
+	para "You think you're"
+	line "strong enough to"
+	cont "continue?"
+
+	para "Let's test that"
+	line "thought out!"
+	done
+
+Route30RivalText1:
 	text "You won't get so"
 	line "lucky next time!"
+
+	para "I'm going to look"
+	line "around for more"
+	cont "#mon."
+
+	para "See ya!"
+	done
+
+Route30RivalLossText:
+	text "Looks like you're"
+	line "not as good as"
+	cont "you thought!"
+	done
+
+Route30RivalWinText:
+	text "Looks like you're"
+	line "as good as you"
+	cont "thought…"
 	done

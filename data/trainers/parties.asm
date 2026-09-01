@@ -1516,8 +1516,10 @@ Rival0Group:
 
 	def_trainer_class RIVAL0
 	def_trainer 1, "boy"
-	tr_mon 4, RATTATA
-	tr_mon 5, CHIKORITA @ ORAN_BERRY
+	tr_mon 30, QUAGSIRE
+	tr_mon 30, PIKACHU
+	tr_mon 30, KADABRA
+	tr_mon 31, QUILAVA @ ORAN_BERRY
 	end_trainer
 
 	def_trainer 2, "boy"
@@ -2253,16 +2255,16 @@ YoungsterGroup:
 
 	def_trainer_class YOUNGSTER
 	def_trainer JOEY1, "Joey"
-	tr_mon 5, RATTATA, MALE
-		tr_extra GUTS, ATK_UP_SATK_DOWN
-		tr_dvs 15 All
-	end_trainer
+	tr_mon 29, TANGELA
+;		tr_extra GUTS, ATK_UP_SATK_DOWN
+;		tr_dvs 15 All
+;	end_trainer
 
 	def_trainer JOEY2, "Joey"
-	tr_mon 15, RATTATA @ ORAN_BERRY, MALE
-		tr_extra GUTS, ATK_UP_SATK_DOWN
-		tr_dvs 15 All
-		tr_evs 48 Atk, 48 Spe
+	tr_mon 29, TANGELA
+;		tr_extra GUTS, ATK_UP_SATK_DOWN
+;		tr_dvs 15 All
+;		tr_evs 48 Atk, 48 Spe
 	end_trainer
 
 	def_trainer JOEY3, "Joey"
@@ -2290,13 +2292,13 @@ YoungsterGroup:
 	end_trainer
 
 	def_trainer MIKEY, "Mikey"
-	tr_mon 2, RATTATA
-	tr_mon 4, PIDGEY
+	tr_mon 27, CROCONAW
+	tr_mon 26, GRAVELER
 	end_trainer
 
 	def_trainer ALBERT, "Albert"
-	tr_mon 8, RATTATA
-	tr_mon 10, ZUBAT
+	tr_mon 27, CROCONAW
+	tr_mon 26, GRAVELER
 	end_trainer
 
 	def_trainer GORDON, "Gordon"
@@ -2433,8 +2435,8 @@ BugCatcherGroup:
 	end_trainer
 
 	def_trainer DON, "Don"
-	tr_mon 3, CATERPIE
-	tr_mon 3, CATERPIE
+	tr_mon 26, BUTTERFREE
+	tr_mon 26, BEEDRILL
 	end_trainer
 
 	def_trainer BENNY, "Benny"
@@ -4130,8 +4132,8 @@ endc
 	end_trainer
 
 	def_trainer KRISE, "Krise"
-	tr_mon 14, ODDISH
-	tr_mon 17, CUBONE
+	tr_mon 27, GLOOM
+	tr_mon 28, MAROWAK
 	end_trainer
 
 	def_trainer CONNIE, "Connie"

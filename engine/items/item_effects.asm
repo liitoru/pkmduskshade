@@ -208,7 +208,7 @@ PokeBallEffect:
 
 	call ClearSprites
 
-	farcall GiveExperiencePointsAfterCatch
+;	farcall GiveExperiencePointsAfterCatch
 
 	ld a, [wOTPartyMon1Level]
 	ld [wCurPartyLevel], a
