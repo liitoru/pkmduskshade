@@ -431,7 +431,7 @@ Bug_catcherDonBeatenText:
 Route30YoungsterText:
 	text "I don't know why"
 	line "there's a PC out"
-	cont "here I'm just a"
+	cont "here, I'm just a"
 	cont "kid!"
 	done
 
