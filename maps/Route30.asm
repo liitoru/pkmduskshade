@@ -7,7 +7,7 @@ Route30_MapScriptHeader:
 	def_callbacks
 
 	def_warp_events
-	warp_event 19, 22, ROUTE_30_BERRY_SPEECH_HOUSE, 1
+	warp_event 15, 19, ROUTE_30_BERRY_SPEECH_HOUSE, 1
 	warp_event 28,  3, MR_POKEMONS_HOUSE, 1
 
 	def_coord_events
@@ -18,12 +18,12 @@ Route30_MapScriptHeader:
 
 	def_bg_events
 	bg_event  2, 20, BGEVENT_JUMPTEXT, Route30SignText
-	bg_event 19, 20, BGEVENT_JUMPTEXT, MrPokemonsHouseDirectionsSignText
+	bg_event 19, 31, BGEVENT_JUMPTEXT, MrPokemonsHouseDirectionsSignText
 	bg_event 26,  1, BGEVENT_JUMPTEXT, MrPokemonsHouseSignText
 	bg_event  9,  7, BGEVENT_JUMPTEXT, Route30TrainerTipsText
 	bg_event 23,  7, BGEVENT_JUMPTEXT, Route30AdvancedTipsText
 	bg_event 13,  8, BGEVENT_ITEM + POTION, EVENT_ROUTE_30_HIDDEN_POTION
-	bg_event 17, 21, BGEVENT_JUMPTEXT, BerryMastersHouseSignText
+	bg_event 17, 31, BGEVENT_JUMPTEXT, BerryMastersHouseSignText
 
 	def_object_events
 	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
