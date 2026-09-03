@@ -95,8 +95,8 @@ ENDM
 
 .Pond_Old:
 	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     POLIWAG,    10
+	fishentry  85 percent + 1, POLIWAG,    10
+	fishentry 100 percent,     REMORAID,   10
 .Pond_Good:
 	fishentry  35 percent,     MAGIKARP,   20
 	fishentry  70 percent,     POLIWAG,    20

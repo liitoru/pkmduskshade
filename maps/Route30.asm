@@ -13,8 +13,8 @@ Route30_MapScriptHeader:
 	def_coord_events
 	coord_event  3, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift1
 	coord_event  4, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift2
-	coord_event 32, 20, SCENE_ROUTE30_RIVAL, Route30Rival1
-	coord_event 33, 20, SCENE_ROUTE30_RIVAL, Route30Rival2
+	coord_event 20, 22, SCENE_ROUTE30_RIVAL, Route30Rival1
+	coord_event 20, 23, SCENE_ROUTE30_RIVAL, Route30Rival2
 
 	def_bg_events
 	bg_event  2, 20, BGEVENT_JUMPTEXT, Route30SignText
@@ -28,16 +28,16 @@ Route30_MapScriptHeader:
 	def_object_events
 	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
 	object_event  4, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
-	object_event 32, 25, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, EVENT_ROUTE_30_YOUNGSTER_JOEY
+	object_event 26, 23, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, EVENT_ROUTE_30_YOUNGSTER_JOEY
 	object_event 35,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, TrainerYoungsterJoey, -1
 	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterMikey, -1
 	object_event 13,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBug_catcherDon, -1
 	object_event  3,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 2, -1, PAL_NPC_ORANGE, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30YoungsterText, -1
 	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerLassKrise2, -1
 	object_event  5, 20, SPRITE_OAK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Gift4, -1
+	object_event 30, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Fisher, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
 	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
-	fruittree_event 19,  1, FRUITTREE_ROUTE_30_2, PECHA_BERRY, PAL_NPC_PINK
 	itemball_event 37,  9, ANTIDOTE, 1, EVENT_ROUTE_30_ANTIDOTE
 
 Route30Gift1:
@@ -63,7 +63,7 @@ Route30Gift3:
 .MalePokemon
 	givepoke FURRET, PLAIN_FORM, 30, ORAN_BERRY
 .FinishGift
-	verbosegiveitem GREAT_BALL, 5
+	verbosegiveitem GREAT_BALL, 10
 	closetext
 	end
 
@@ -103,22 +103,43 @@ Route30GiftText2:
 	const ROUTE30_PIDGEY
 	const ROUTE30_RIVAL
 
+Route30Fisher:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_ROD
+	iftruefwd .GotOldRod
+	writetext GiveOldRodText
+	waitbutton
+	verbosegivekeyitem OLD_ROD
+	setevent EVENT_GOT_OLD_ROD
+.GotOldRod
+	writetext AlreadyGotOldRod
+	waitbutton
+	closetext
+	end
+
+GiveOldRodText:
+	text "Care to do some"
+	line "fishing?"
+	done
+
+AlreadyGotOldRod:
+	text "Face the water and"
+	line "cast your line!"
+
+	para "You never know"
+	line "what you'll find!"
+	done
+
 Route30Rival1:
-	moveobject ROUTE30_RIVAL, 33, 25
-	appear ROUTE30_RIVAL
+	moveobject ROUTE30_RIVAL, 26, 23
+Route30Rival2:
 	showemote EMOTE_SHOCK, PLAYER, 15
+	turnobject PLAYER, RIGHT
+	appear ROUTE30_RIVAL
 	special Special_FadeOutMusic
 	pause 15
 	applymovement ROUTE30_RIVAL, Route30RivalMovement1
-	turnobject PLAYER, RIGHT
-	sjumpfwd FinishRival
-Route30Rival2:
-	showemote EMOTE_SHOCK, PLAYER, 15
-	appear ROUTE30_RIVAL
-	special Special_FadeOutMusic
-	pause 15
-	applymovement ROUTE30_RIVAL, Route30RivalMovement2
-	turnobject PLAYER, LEFT
 FinishRival:
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	showtext Route30RivalText
@@ -130,29 +151,27 @@ FinishRival:
 	special DeleteSavedMusic
 	playmusic MUSIC_RIVAL_AFTER
 	showtext Route30RivalText1
-	turnobject PLAYER, UP
-	applymovement ROUTE30_RIVAL, Route30RivalMovement3
+	applymovement ROUTE30_RIVAL, Route30RivalMovement2
 	disappear ROUTE30_RIVAL
 	playmusic MUSIC_ROUTE_30
 	setscene SCENE_ROUTE30_NOOP
 	end
 
 Route30RivalMovement1:
-	step_up
-	step_up
-	step_up
-	step_up
-	step_up
-	turn_head_left
+	step_left
+	step_left
+	step_left
+	step_left
+	step_left
 	step_end
 
 Route30RivalMovement2:
-	step_up
-	step_up
-	step_up
-	step_up
-	step_up
-	turn_head_right
+	step_right
+	step_right
+	step_right
+	step_right
+	step_right
+	step_right
 	step_end
 
 Route30RivalMovement3:
@@ -163,27 +182,6 @@ Route30RivalMovement3:
 	step_up
 	step_up
 	step_end
-
-YoungsterJoey_ImportantBattleScript:
-	waitsfx
-	special SaveMusic
-	playmusic MUSIC_JOHTO_TRAINER_BATTLE
-	opentext
-	writetext Text_UseTackle
-	pause 30
-	closetext
-	playsound SFX_TACKLE
-	applymovement ROUTE30_PIDGEY, Route30_JoeysRattataAttacksMovement
-	opentext
-	faceplayer
-	writetext Text_ThisIsABigBattle
-	waitbutton
-	turnobject ROUTE30_YOUNGSTER1, UP
-	closetext
-	playsound SFX_TACKLE
-	applymovement ROUTE30_PIDGEY, Route30_MikeysPidgeyAttacksMovement
-	special RestoreMusic
-	end
 
 TrainerYoungsterJoey:
 	generictrainer YOUNGSTER, JOEY1, EVENT_BEAT_YOUNGSTER_JOEY, YoungsterJoey1SeenText, YoungsterJoey1BeatenText
