@@ -8,7 +8,7 @@ Route30_MapScriptHeader:
 
 	def_warp_events
 	warp_event 15, 19, ROUTE_30_BERRY_SPEECH_HOUSE, 1
-	warp_event 28,  3, MR_POKEMONS_HOUSE, 1
+	warp_event 24, 26, DEMO_CAVE, 1
 
 	def_coord_events
 	coord_event  3, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift1

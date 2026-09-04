@@ -1959,4 +1959,8 @@ SECTION "BattleFactoryBattleRoom_BlockData", ROMX
 BattleFactoryBattleRoom_BlockData:
 	INCBIN "maps/BattleFactoryBattleRoom.ablk.lzp"
 
+SECTION "DemoCave_BlockData", ROMX
+DemoCave_BlockData:
+	INCBIN "maps/DemoCave.ablk.lzp"
+
 ENDSECTION

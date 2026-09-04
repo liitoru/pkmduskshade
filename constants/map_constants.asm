@@ -600,6 +600,7 @@ ENDM
 	map_const QUIET_CAVE_B3F,                             18, 19 ;  8
 	map_const YELLOW_FOREST_GATE,                          5,  4 ;  9
 	map_const YELLOW_FOREST,                              29, 26 ; 10
+	map_const DEMO_CAVE,                                  18, 18 ; 11
 
 	newgroup                                                     ; 28
 	map_const ROUTE_9,                                    26,  9 ;  1

@@ -2268,4 +2268,32 @@
 	wildmon LEVEL_FROM_BADGES + 3, SNEASEL, HISUIAN_FORM
 	end_grass_wildmons
 
+	def_grass_wildmons DEMO_CAVE
+	db 4 percent ; encounter rate
+	; morn
+	wildmon 30, MAROWAK
+	wildmon 30, ZUBAT
+	wildmon 31, MACHOKE
+	wildmon 31, MUNCHLAX
+	wildmon 30, GOLBAT
+	wildmon 31, NATU
+	wildmon 32, GOLBAT
+	; day
+	wildmon 30, MAROWAK
+	wildmon 30, ZUBAT
+	wildmon 31, MACHOKE
+	wildmon 31, MUNCHLAX
+	wildmon 30, GOLBAT
+	wildmon 31, NATU
+	wildmon 32, GOLBAT
+	; nite
+	wildmon 30, MAROWAK
+	wildmon 30, ZUBAT
+	wildmon 31, MACHOKE
+	wildmon 31, MUNCHLAX
+	wildmon 30, GOLBAT
+	wildmon 31, NATU
+	wildmon 32, GOLBAT
+	end_grass_wildmons
+
 	db -1 ; end
