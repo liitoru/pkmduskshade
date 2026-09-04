@@ -37,6 +37,8 @@ Route30_MapScriptHeader:
 	object_event  5, 20, SPRITE_OAK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Gift4, -1
 	object_event 30, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Fisher, -1
 	object_event 27, 28, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherRalph, -1
+	object_event 34, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherTully, -1
+	object_event 34, 29, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherWilton, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
 	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
 	itemball_event 37,  9, ANTIDOTE, 1, EVENT_ROUTE_30_ANTIDOTE
@@ -375,6 +377,27 @@ GenericTrainerFisherRalph:
 	line "my horizons."
 	done
 
+GenericTrainerFisherTully:
+	generictrainer FISHER, RALPH1, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText
+
+	text "Fishing #mon is"
+	line "fun. You never"
+	cont "know what will"
+	cont "bite the hook."
+
+	para "You should try"
+	line "fishing sometime."
+	done
+
+GenericTrainerFisherWilton:
+	generictrainer FISHER, RALPH1, EVENT_BEAT_FISHER_WILTON, FisherWiltonSeenText, FisherWiltonBeatenText
+
+	text "I might not catch"
+	line "anything, but at"
+	cont "least I have fun"
+	cont "trying."
+	done
+
 Text_UseTackle:
 	text "Go, Rattata!"
 
@@ -577,4 +600,30 @@ FisherRalphSeenText:
 FisherRalphBeatenText:
 	text "You are stronger"
 	line "than I thought."
+	done
+
+FisherTullySeenText:
+	text "I almost caught"
+	line "it!"
+
+	para "Never interrupt a"
+	line "fisherman."
+	done
+
+FisherTullyBeatenText:
+	text "You're in a league"
+	line "of your own."
+	done
+
+FisherWiltonSeenText:
+	text "I haven't had any"
+	line "luck today."
+
+	para "Let's try a #mon"
+	line "battle!"
+	done
+
+FisherWiltonBeatenText:
+	text "It seems I'm still"
+	line "out of luck."
 	done

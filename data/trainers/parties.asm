@@ -2888,7 +2888,7 @@ FisherGroup:
 	end_trainer
 
 	def_trainer TULLY1, "Tully"
-	tr_mon 30, QWILFISH
+	tr_mon 29, QWILFISH
 	end_trainer
 
 	def_trainer TULLY2, "Tully"
@@ -2912,9 +2912,7 @@ FisherGroup:
 	end_trainer
 
 	def_trainer WILTON1, "Wilton"
-	tr_mon 34, GOLDEEN
-	tr_mon 36, REMORAID
-	tr_mon 36, SEAKING
+	tr_mon 29, REMORAID
 	end_trainer
 
 	def_trainer WILTON2, "Wilton"
