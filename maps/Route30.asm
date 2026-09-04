@@ -36,6 +36,7 @@ Route30_MapScriptHeader:
 	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerLassKrise2, -1
 	object_event  5, 20, SPRITE_OAK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Gift4, -1
 	object_event 30, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30Fisher, -1
+	object_event 27, 28, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherRalph, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
 	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
 	itemball_event 37,  9, ANTIDOTE, 1, EVENT_ROUTE_30_ANTIDOTE
@@ -363,6 +364,17 @@ Route30_MikeysPidgeyAttacksMovement:
 	run_step_up
 	step_end
 
+GenericTrainerFisherRalph:
+	generictrainer FISHER, RALPH1, EVENT_BEAT_FISHER_RALPH, FisherRalphSeenText, FisherRalphBeatenText
+
+	text "Maybe I need a"
+	line "better fishing"
+	cont "spot."
+
+	para "I should broaden"
+	line "my horizons."
+	done
+
 Text_UseTackle:
 	text "Go, Rattata!"
 
@@ -551,4 +563,18 @@ Route30RivalWinText:
 	text "Looks like you're"
 	line "as good as you"
 	cont "thought…"
+	done
+
+FisherRalphSeenText:
+	text "This is my special"
+	line "fishing spot!"
+
+	para "There isn't enough"
+	line "room here for both"
+	cont "of us."
+	done
+
+FisherRalphBeatenText:
+	text "You are stronger"
+	line "than I thought."
 	done

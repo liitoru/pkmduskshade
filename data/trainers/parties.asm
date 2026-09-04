@@ -2861,7 +2861,7 @@ FisherGroup:
 
 	def_trainer_class FISHER
 	def_trainer RALPH1, "Ralph"
-	tr_mon 11, GOLDEEN
+	tr_mon 29, GOLDEEN
 	end_trainer
 
 	def_trainer RALPH2, "Ralph"
