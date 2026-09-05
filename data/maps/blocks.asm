@@ -1963,4 +1963,9 @@ SECTION "DemoCave_BlockData", ROMX
 DemoCave_BlockData:
 	INCBIN "maps/DemoCave.ablk.lzp"
 
+SECTION "DemoForest_BlockData", ROMX
+DemoForest_BlockData:
+	INCBIN "maps/DemoForest.ablk.lzp"
+
+
 ENDSECTION

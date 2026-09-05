@@ -5,6 +5,9 @@ DemoCave_MapScriptHeader:
 
 	def_warp_events
 	warp_event 33,  7, ROUTE_30, 2
+	warp_event 19,  3, DEMO_CAVE, 3
+	warp_event  5, 11, DEMO_CAVE, 2
+	warp_event 11, 33, DEMO_FOREST, 1
 
 	def_coord_events
 

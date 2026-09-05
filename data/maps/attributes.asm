@@ -941,3 +941,4 @@ ENDM
 	map_attributes ValenciaHouse, VALENCIA_HOUSE, $0
 	map_attributes ValenciaPort, VALENCIA_PORT, $0
 	map_attributes DemoCave, DEMO_CAVE, $9
+	map_attributes DemoForest, DEMO_FOREST, $35

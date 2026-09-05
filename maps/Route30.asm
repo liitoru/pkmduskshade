@@ -40,7 +40,7 @@ Route30_MapScriptHeader:
 	object_event 34, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherTully, -1
 	object_event 34, 29, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerFisherWilton, -1
 	cuttree_event 39,  0, EVENT_ROUTE_30_CUT_TREE
-	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, ORAN_BERRY, PAL_NPC_BLUE
+	fruittree_event 20,  6, FRUITTREE_ROUTE_30_1, SITRUS_BERRY, PAL_NPC_YELLOW
 	itemball_event 37,  9, ANTIDOTE, 1, EVENT_ROUTE_30_ANTIDOTE
 
 Route30Gift1:
@@ -54,17 +54,17 @@ Route30Gift3:
 	writetext Route30GiftText
 	waitbutton
 	setscene SCENE_ROUTE30_RIVAL
-	givepoke BAYLEEF, PLAIN_FORM, 30, ORAN_BERRY
-	givepoke SEAKING, PLAIN_FORM, 30, ORAN_BERRY
-	givepoke GROWLITHE, HISUIAN_FORM, 30, ORAN_BERRY
+	givepoke BAYLEEF, PLAIN_FORM, 30, SITRUS_BERRY
+	givepoke SEAKING, PLAIN_FORM, 30, SITRUS_BERRY
+	givepoke GROWLITHE, HISUIAN_FORM, 30, SITRUS_BERRY
 	readvar VAR_PLAYERGENDER
 	assert PLAYER_MALE == 0
 	iffalsefwd .MalePokemon
-	givepoke RATICATE, PLAIN_FORM, 30, ORAN_BERRY
+	givepoke RATICATE, PLAIN_FORM, 30, SITRUS_BERRY
 	sjumpfwd .FinishGift
 
 .MalePokemon
-	givepoke FURRET, PLAIN_FORM, 30, ORAN_BERRY
+	givepoke FURRET, PLAIN_FORM, 30, SITRUS_BERRY
 .FinishGift
 	verbosegiveitem GREAT_BALL, 10
 	closetext
