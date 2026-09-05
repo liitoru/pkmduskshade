@@ -14,6 +14,11 @@ DemoCave_MapScriptHeader:
 	def_bg_events
 
 	def_object_events
+	object_event 27,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerBugCatcherNoah, -1
+	object_event 13, 18, SPRITE_HIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerHikerDereck, -1
+	object_event  7, 31, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerLuke, -1
+	object_event 27, 24, SPRITE_FIREBREATHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerFirebreatherLeo, -1
+	object_event 14,  9, SPRITE_POKEMANIAC, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerPokemaniacCarlson, -1
 ;	object_event  6,  8, SPRITE_HEX_MANIAC, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHexManiacAshley, -1
 ;	object_event 13, 17, SPRITE_ACE_TRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerCooltrainermHenri, -1
 ;	object_event 23, 25, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerGrady, -1
@@ -99,3 +104,110 @@ DemoCave_MapScriptHeader:
 ;	text "My studies don't"
 ;	line "apply to battles!"
 ;	done
+
+GenericTrainerBugCatcherNoah:
+	generictrainer BUG_CATCHER, NOAH, EVENT_BEAT_BUG_CATCHER_NOAH, .SeenText, .BeatenText
+
+	text "I'll keep going"
+	line "this way."
+
+	para "Maybe I'll find"
+	line "rare bug."
+	done
+
+.SeenText:
+	text "I'm going to"
+	line "catch all the"
+	cont "bugs here!"
+	done
+
+.BeatenText:
+	text "Fine… we can"
+	line "share the bugs."
+	done
+
+GenericTrainerHikerDereck:
+	generictrainer HIKER, DERECK, EVENT_BEAT_HIKER_DERECK, .SeenText, .BeatenText
+
+	text "A hiker is always"
+	line "prepared!"
+
+	para "I always carry my"
+	line "trusty repellent."
+	done
+
+.SeenText:
+	text "A hiker is always"
+	line "ready for a good"
+	cont "battle!"
+	done
+
+.BeatenText:
+	text "I wasn't prepared"
+	line "enough."
+	done
+
+GenericTrainerHikerLuke:
+	generictrainer HIKER, LUKE, EVENT_BEAT_HIKER_LUKE, .SeenText, .BeatenText
+
+	text "I'm ready to"
+	line "explore this"
+	cont "whole cave."
+
+	para "Although maybe I"
+	line "should stop by a"
+	cont "#mon Center"
+	cont "first."
+	done
+
+.SeenText:
+	text "Nothing like a"
+	line "battle to stretch"
+	cont "out!"
+	done
+
+.BeatenText:
+	text "Now I feel ready"
+	line "to explore even"
+	cont "more."
+	done
+
+GenericTrainerFirebreatherLeo:
+	generictrainer FIREBREATHER, LEO, EVENT_BEAT_FIREBREATHER_LEO, .SeenText, .BeatenText
+
+	text "I like this cave."
+
+	para "Nothing to"
+	line "accidentally burn"
+	cont "down."
+	done
+
+.SeenText:
+	text "Our fire is"
+	line "unrivaled!"
+	done
+
+.BeatenText:
+	text "Event the fiercest"
+	line "fire can flicker."
+	done
+
+GenericTrainerPokemaniacCarlson:
+	generictrainer POKEMANIAC, CARLSON, EVENT_BEAT_POKEMANIAC_CARLSON, .SeenText, .BeatenText
+
+	text "There must be a"
+	line "very rare #mon"
+	cont "around here."
+	done
+
+.SeenText:
+	text "Hold it right"
+	line "there!"
+
+	para "You'll ruin those"
+	line "footprints!"
+	done
+
+.BeatenText:
+	text "Uurggh…"
+	done

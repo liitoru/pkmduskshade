@@ -2470,6 +2470,10 @@ BugCatcherGroup:
 	tr_mon LEVEL_FROM_BADGES + 5, SCYTHER
 	end_trainer
 
+	def_trainer NOAH, "Noah"
+	tr_mon 29, SPINARAK
+	end_trainer
+
 
 SECTION "CamperGroup", ROMX
 CamperGroup:
@@ -3458,6 +3462,14 @@ HikerGroup:
 	tr_mon 57, STEELIX
 	end_trainer
 
+	def_trainer DERECK, "Dereck"
+	tr_mon 29, SANDSLASH
+	end_trainer
+
+	def_trainer LUKE, "Luke"
+	tr_mon 29, STEELIX
+	end_trainer
+
 
 SECTION "GruntMGroup", ROMX
 GruntMGroup:
@@ -3931,6 +3943,10 @@ PokemaniacGroup:
 		tr_moves HEADBUTT, DEFENSE_CURL, ROLLOUT, EXPLOSION
 	tr_mon LEVEL_FROM_BADGES + 7, PORYGON2
 		tr_moves CONVERSION, RECOVER, PSYBEAM, TRI_ATTACK
+	end_trainer
+
+	def_trainer CARLSON, "Carlson"
+	tr_mon 29, PORYGON
 	end_trainer
 
 
@@ -4504,6 +4520,10 @@ FirebreatherGroup:
 	tr_mon 53, CHARMANDER
 	tr_mon 55, CHARMELEON
 	tr_mon 57, CHARIZARD
+	end_trainer
+
+	def_trainer LEO, "Leo"
+	tr_mon 29, SLUGMA
 	end_trainer
 
 

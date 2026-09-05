@@ -160,6 +160,7 @@ DEF BETA EQU __trainer_class__
 	const KEN
 	const WAYNE
 	const OSCAR
+	const NOAH
 
 	trainerclass CAMPER
 	const TODD1
@@ -342,6 +343,8 @@ DEF BETA EQU __trainer_class__
 	const STEVE
 	const DERRICK
 	const FLOYD
+	const DERECK
+	const LUKE
 
 	trainerclass GRUNTM
 
@@ -406,6 +409,7 @@ DEF BETA EQU __trainer_class__
 	const ENZO
 	const MILLER
 	const AIDAN
+	const CARLSON
 
 	trainerclass COSPLAYER
 	const CLARA
@@ -515,6 +519,7 @@ DEF BETA EQU __trainer_class__
 	const OLEG
 	const TALA
 	const CYD
+	const LEO
 
 	trainerclass JUGGLER
 	const IRWIN1
