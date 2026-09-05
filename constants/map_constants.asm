@@ -601,7 +601,7 @@ ENDM
 	map_const YELLOW_FOREST_GATE,                          5,  4 ;  9
 	map_const YELLOW_FOREST,                              29, 26 ; 10
 	map_const DEMO_CAVE,                                  18, 18 ; 11
-	map_const DEMO_FOREST,                                18, 18 ; 12
+	map_const DEMO_FOREST,                                23, 10 ; 12
 
 	newgroup                                                     ; 28
 	map_const ROUTE_9,                                    26,  9 ;  1
