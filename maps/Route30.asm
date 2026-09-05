@@ -378,7 +378,7 @@ GenericTrainerFisherRalph:
 	done
 
 GenericTrainerFisherTully:
-	generictrainer FISHER, RALPH1, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText
+	generictrainer FISHER, TULLY1, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText
 
 	text "Fishing #mon is"
 	line "fun. You never"
@@ -390,7 +390,7 @@ GenericTrainerFisherTully:
 	done
 
 GenericTrainerFisherWilton:
-	generictrainer FISHER, RALPH1, EVENT_BEAT_FISHER_WILTON, FisherWiltonSeenText, FisherWiltonBeatenText
+	generictrainer FISHER, WILTON1, EVENT_BEAT_FISHER_WILTON, FisherWiltonSeenText, FisherWiltonBeatenText
 
 	text "I might not catch"
 	line "anything, but at"
