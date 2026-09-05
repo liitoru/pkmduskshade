@@ -15,7 +15,7 @@ DemoCave_MapScriptHeader:
 
 	def_object_events
 	object_event 27,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerBugCatcherNoah, -1
-	object_event 13, 18, SPRITE_HIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerHikerDereck, -1
+	object_event 13, 18, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerDereck, -1
 	object_event  7, 31, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerLuke, -1
 	object_event 27, 24, SPRITE_FIREBREATHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerFirebreatherLeo, -1
 	object_event 14,  9, SPRITE_POKEMANIAC, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerPokemaniacCarlson, -1
@@ -112,7 +112,7 @@ GenericTrainerBugCatcherNoah:
 	line "this way."
 
 	para "Maybe I'll find"
-	line "rare bug."
+	line "a rare bug."
 	done
 
 .SeenText:
