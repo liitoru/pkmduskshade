@@ -19,6 +19,7 @@ DemoCave_MapScriptHeader:
 	object_event  7, 31, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerLuke, -1
 	object_event 27, 24, SPRITE_FIREBREATHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerFirebreatherLeo, -1
 	object_event 14,  9, SPRITE_POKEMANIAC, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerPokemaniacCarlson, -1
+	object_event  6,  3, SPRITE_EEVEE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, DemoCaveTaurosScript, EVENT_FOUGHT_TAUROS
 ;	object_event  6,  8, SPRITE_HEX_MANIAC, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHexManiacAshley, -1
 ;	object_event 13, 17, SPRITE_ACE_TRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerCooltrainermHenri, -1
 ;	object_event 23, 25, SPRITE_HIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerHikerGrady, -1
@@ -210,4 +211,39 @@ GenericTrainerPokemaniacCarlson:
 
 .BeatenText:
 	text "Uurggh…"
+	done
+
+	object_const_def
+	const DEMOCAVE_BUG_CATCHER
+	const DEMOCAVE_HIKER1
+	const DEMOCAVE_HIKER2
+	const DEMOCAVE_FIREBREATHER
+	const DEMOCAVE_POKEMANIAC
+	const DEMOCAVE_TAUROS
+
+DemoCaveTaurosScript:
+    opentext
+    writetext TaurosTextDemoCave
+    cry TAUROS
+    pause 15
+    closetext
+    loadvar VAR_BATTLETYPE, BATTLETYPE_NEVER_SHINY
+    loadwildmon TAUROS, 30
+    startbattle
+    reloadmapafterbattle
+    ifequalfwd DRAW, BetaForestTaurosDidntCatch
+    ifequalfwd LOSE, BetaForestTaurosDidntCatch
+    setevent EVENT_FOUGHT_CAVE_TAUROS
+    disappear DEMOCAVE_TAUROS
+    end
+	
+BetaForestTaurosDidntCatch:
+    disappear DEMOCAVE_TAUROS
+    end
+
+BetaForestTaurosDisappear:
+    end
+
+TaurosTextDemoCave:
+	text "Tauros: Duuururur!"
 	done
