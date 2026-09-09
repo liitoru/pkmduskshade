@@ -141,6 +141,7 @@ DEF BETA EQU __trainer_class__
 	const CHAZ
 	const TYLER
 	const ARDEN
+	const LEVI
 
 	trainerclass BUG_CATCHER
 	const WADE1
@@ -161,6 +162,8 @@ DEF BETA EQU __trainer_class__
 	const WAYNE
 	const OSCAR
 	const NOAH
+	const WILLOW
+	const MATEO
 
 	trainerclass CAMPER
 	const TODD1
@@ -305,6 +308,7 @@ DEF BETA EQU __trainer_class__
 	const EASTON
 	const BRYAN
 	const TRENT
+	const ISAAC
 
 	trainerclass HIKER
 	const ANTHONY1
@@ -466,6 +470,7 @@ DEF BETA EQU __trainer_class__
 	const ALICE
 	const DUPLICA
 	const MAVIS
+	const SOFIA
 
 	trainerclass BEAUTY
 	const VICTORIA

@@ -2258,7 +2258,7 @@ YoungsterGroup:
 	tr_mon 29, TANGELA
 ;		tr_extra GUTS, ATK_UP_SATK_DOWN
 ;		tr_dvs 15 All
-;	end_trainer
+	end_trainer
 
 	def_trainer JOEY2, "Joey"
 	tr_mon 29, TANGELA
@@ -2363,6 +2363,11 @@ YoungsterGroup:
 	tr_mon 53, TAUROS
 	tr_mon 55, RAPIDASH
 	end_trainer
+
+	def_trainer LEVI, "Levi"
+	tr_mon 29, SANDSHREW
+	end_trainer
+
 
 SECTION "BugCatcherGroup", ROMX
 BugCatcherGroup:
@@ -2472,6 +2477,14 @@ BugCatcherGroup:
 
 	def_trainer NOAH, "Noah"
 	tr_mon 29, SPINARAK
+	end_trainer
+
+	def_trainer WILLOW, "Willow"
+	tr_mon 29, ARIADOS
+	end_trainer
+
+	def_trainer MATEO, "Mateo"
+	tr_mon 29, HERACROSS
 	end_trainer
 
 
@@ -3250,6 +3263,10 @@ BirdKeeperGroup:
 	tr_mon 33, PIDGEY
 	tr_mon 44, PIDGEOTTO
 	tr_mon 55, PIDGEOT
+	end_trainer
+
+	def_trainer ISAAC, "Isaac"
+	tr_mon 29, XATU
 	end_trainer
 
 
@@ -4256,6 +4273,10 @@ endc
 	tr_mon 55, TOGEKISS
 	tr_mon 53, JOLTEON
 	tr_mon 52, AMPHAROS
+	end_trainer
+
+	def_trainer SOFIA, "Sofia"
+	tr_mon 29, PINECO
 	end_trainer
 
 
