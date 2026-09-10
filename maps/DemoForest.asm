@@ -16,6 +16,7 @@ DemoForest_MapScriptHeader:
 	object_event 15, 17, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterLevi, -1
 	object_event 37, 18, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerLassSofia, -1
 	object_event  5, 12, SPRITE_BIRD_KEEPER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBirdKeeperIsaac, -1
+	object_event  6,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, DemoForestEndingNPC, -1
 
 GenericTrainerBugCatcherWillow:
 	generictrainer BUG_CATCHER, WILLOW, EVENT_BEAT_BUG_CATCHER_WILLOW, .SeenText, .BeatenText
@@ -115,4 +116,102 @@ GenericTrainerBirdKeeperIsaac:
 
 .BeatenText:
 	text "Well done."
+	done
+
+DemoForestEndingNPC:
+	opentext
+	checkevent EVENT_BEAT_BIRD_KEEPER_ISAAC
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_BUG_CATCHER_MATEO
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_BUG_CATCHER_WILLOW
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_LASS_SOFIA
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_YOUNGSTER_LEVI
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_YOUNGSTER_JOEY
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_LASS_KRISE
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_YOUNGSTER_MIKEY
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_BUG_CATCHER_DON
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_FISHER_RALPH
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_FISHER_TULLY
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_FISHER_WILTON
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_HEX_MANIAC_ASHLEY
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_COOLTRAINERM_HENRI
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_HIKER_GRADY
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_SCIENTIST_CARL
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_BUG_CATCHER_NOAH
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_HIKER_DERECK
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_HIKER_LUKE
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_FIREBREATHER_LEO
+	iffalsefwd .DontEnd
+	checkevent EVENT_BEAT_POKEMANIAC_CARLSON
+	iftruefwd .End
+.DontEnd
+	writetext FightAllTrainersText
+	waitbutton
+	closetext
+	end
+
+.End
+	writetext CongratulationsText
+	waitbutton
+	closetext
+	clearevent EVENT_BEAT_BIRD_KEEPER_ISAAC
+	clearevent EVENT_BEAT_BUG_CATCHER_MATEO
+	clearevent EVENT_BEAT_BUG_CATCHER_WILLOW
+	clearevent EVENT_BEAT_LASS_SOFIA
+	clearevent EVENT_BEAT_YOUNGSTER_LEVI
+	clearevent EVENT_BEAT_YOUNGSTER_JOEY
+	clearevent EVENT_BEAT_LASS_KRISE
+	clearevent EVENT_BEAT_YOUNGSTER_MIKEY
+	clearevent EVENT_BEAT_BUG_CATCHER_DON
+	clearevent EVENT_BEAT_FISHER_RALPH
+	clearevent EVENT_BEAT_FISHER_TULLY
+	clearevent EVENT_BEAT_FISHER_WILTON
+	clearevent EVENT_BEAT_HEX_MANIAC_ASHLEY
+	clearevent EVENT_BEAT_COOLTRAINERM_HENRI
+	clearevent EVENT_BEAT_HIKER_GRADY
+	clearevent EVENT_BEAT_SCIENTIST_CARL
+	clearevent EVENT_BEAT_BUG_CATCHER_NOAH
+	clearevent EVENT_BEAT_HIKER_DERECK
+	clearevent EVENT_BEAT_HIKER_LUKE
+	clearevent EVENT_BEAT_FIREBREATHER_LEO
+	clearevent EVENT_BEAT_POKEMANIAC_CARLSON
+	blackoutmod ROUTE_30
+	halloffame
+	end
+
+FightAllTrainersText:
+	text "Come back after"
+	line "you have defeated"
+	cont "all trainers."
+	done
+
+CongratulationsText:
+	text "Congratulations!"
+
+	para "You have completed"
+	line "the demo!"
+
+	para "All trainers will"
+	line "now be reset, so"
+	cont "you can keep"
+	cont "playing!"
+	done
 	done

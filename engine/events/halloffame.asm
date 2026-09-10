@@ -1,7 +1,7 @@
 HallOfFame::
-	call HallOfFame_FadeOutMusic
-	farcall InitDisplayForHallOfFame
-	ld a, [wStatusFlags]
+;	call HallOfFame_FadeOutMusic
+;	farcall InitDisplayForHallOfFame
+;	ld a, [wStatusFlags]
 	push af
 	ld a, 1
 	ld [wGameLogicPaused], a
@@ -12,28 +12,29 @@ HallOfFame::
 	farcall SetCreditsSpawn
 
 	; Enable the Pokégear map to cycle through all of Kanto
-	ld hl, wStatusFlags
-	set STATUSFLAGS_HALL_OF_FAME_F, [hl]
+;	ld hl, wStatusFlags
+;	set STATUSFLAGS_HALL_OF_FAME_F, [hl]
 
 	farcall HallOfFame_InitSaveIfNeeded
 
-	ld hl, wHallOfFameCount
-	ld a, [hl]
-	cp HOF_MASTER_COUNT
-	jr nc, .ok
-	inc [hl]
-.ok
+;	ld hl, wHallOfFameCount
+;	ld a, [hl]
+;	cp HOF_MASTER_COUNT
+;	jr nc, .ok
+;	inc [hl]
+;.ok
 	farcall SaveGameData
 	farcall SaveCurrentVersion
-	call GetHallOfFameParty
-	farcall AddHallOfFameEntry
+;	call GetHallOfFameParty
+;	farcall AddHallOfFameEntry
 
-	xor a
-	ld [wGameLogicPaused], a
-	call AnimateHallOfFame
-	pop af
-	ld b, a
-	farjp Credits
+;	xor a
+;	ld [wGameLogicPaused], a
+;	call AnimateHallOfFame
+;	pop af
+;	ld b, a
+;	farjp Credits
+	ret
 
 LeafCredits::
 	call HallOfFame_FadeOutMusic
