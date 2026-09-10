@@ -17,33 +17,22 @@ Route30BerrySpeechHouse_MapScriptHeader:
 Route30BerryHousePokefanMScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_MULCH_FROM_ROUTE_30_HOUSE
-	iftruefwd .GotMulch
-	writetext Route30BerrySpeechHouseMonEatBerriesText
-	promptbutton
-	verbosegiveitem MULCH
-	iffalse_endtext
-	setevent EVENT_GOT_MULCH_FROM_ROUTE_30_HOUSE
-.GotMulch:
-	jumpthisopenedtext
+	writetext Route30BerryHouseHealText
+	waitbutton
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	jumpthistext
 
-	text "I buy top-quality"
-	line "Mulch in Goldenrod"
-	cont "City."
+	text "Good luck!"
 	done
 
-Route30BerrySpeechHouseMonEatBerriesText:
-	text "You know, #mon"
-	line "eat Berries."
-
-	para "They take time to"
-	line "grow back when"
-	cont "they're picked,"
-
-	para "but using Mulch"
-	line "on the soil really"
-	cont "speeds that up!"
-
-	para "Here. I'll share"
-	line "some with you!"
+Route30BerryHouseHealText:
+	text "I can heal your"
+	line "#mon."
 	done

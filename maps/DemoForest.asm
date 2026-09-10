@@ -17,6 +17,8 @@ DemoForest_MapScriptHeader:
 	object_event 37, 18, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerLassSofia, -1
 	object_event  5, 12, SPRITE_BIRD_KEEPER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBirdKeeperIsaac, -1
 	object_event  6,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, DemoForestEndingNPC, -1
+	object_event 24, 18, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, DemoForestUltraBallScript, -1
+	object_event 35,  6, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, DemoForestHealNPC, -1
 
 GenericTrainerBugCatcherWillow:
 	generictrainer BUG_CATCHER, WILLOW, EVENT_BEAT_BUG_CATCHER_WILLOW, .SeenText, .BeatenText
@@ -193,6 +195,7 @@ DemoForestEndingNPC:
 	clearevent EVENT_BEAT_HIKER_LUKE
 	clearevent EVENT_BEAT_FIREBREATHER_LEO
 	clearevent EVENT_BEAT_POKEMANIAC_CARLSON
+	setmapscene ROUTE_30, SCENE_ROUTE30_RIVAL
 	blackoutmod ROUTE_30
 	halloffame
 	end
@@ -214,4 +217,49 @@ CongratulationsText:
 	cont "you can keep"
 	cont "playing!"
 	done
+
+DemoForestUltraBallScript:
+	opentext
+	checkitem ULTRA_BALL
+	iffalsefwd .GetUltraBall
+	jumpthistext
+
+	text "Come back when you"
+	line "need more Ultra"
+	cont "Balls."
+	done
+
+.GetUltraBall
+	writetext TakeUltraBallText
+	waitbutton
+	verbosegiveitem ULTRA_BALL, 5
+	closetext
+	end
+
+TakeUltraBallText:
+	text "Here, take these"
+	line "to help catch"
+	cont "#mon."
+	done
+
+DemoForestHealNPC:
+	faceplayer
+	opentext
+	writetext DemoForestHealText
+	waitbutton
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	jumpthistext
+
+	text "Good luck!"
+	done
+
+DemoForestHealText:
+	text "I can heal you."
 	done

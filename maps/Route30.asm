@@ -13,8 +13,8 @@ Route30_MapScriptHeader:
 	def_coord_events
 	coord_event  3, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift1
 	coord_event  4, 20, SCENE_ROUTE30_DEMO_GIFT, Route30Gift2
-	coord_event 20, 22, SCENE_ROUTE30_RIVAL, Route30Rival1
-	coord_event 20, 23, SCENE_ROUTE30_RIVAL, Route30Rival2
+	coord_event 25, 26, SCENE_ROUTE30_RIVAL, Route30Rival1
+	coord_event 25, 27, SCENE_ROUTE30_RIVAL, Route30Rival2
 
 	def_bg_events
 	bg_event  2, 20, BGEVENT_JUMPTEXT, Route30SignText
@@ -28,7 +28,7 @@ Route30_MapScriptHeader:
 	def_object_events
 	object_event  3, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
 	object_event  4, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30PokefanMText, -1
-	object_event 26, 23, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, EVENT_ROUTE_30_YOUNGSTER_JOEY
+	object_event 26, 21, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, Route30RivalText, EVENT_ROUTE_30_YOUNGSTER_JOEY
 	object_event 35,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, TrainerYoungsterJoey, -1
 	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerYoungsterMikey, -1
 	object_event 13,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 3, GenericTrainerBug_catcherDon, -1
@@ -134,16 +134,16 @@ AlreadyGotOldRod:
 	line "what you'll find!"
 	done
 
-Route30Rival1:
-	moveobject ROUTE30_RIVAL, 26, 23
 Route30Rival2:
+	moveobject ROUTE30_RIVAL, 26, 22
+Route30Rival1:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	turnobject PLAYER, RIGHT
 	appear ROUTE30_RIVAL
 	special Special_FadeOutMusic
 	pause 15
 	applymovement ROUTE30_RIVAL, Route30RivalMovement1
-FinishRival:
+	turnobject ROUTE30_RIVAL, LEFT
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	showtext Route30RivalText
 	winlosstext Route30RivalWinText, Route30RivalLossText
@@ -161,23 +161,14 @@ FinishRival:
 	end
 
 Route30RivalMovement1:
-	step_left
-	step_left
-	step_left
-	step_left
-	step_left
+	step_down
+	step_down
+	step_down
+	step_down
+	step_down
 	step_end
 
 Route30RivalMovement2:
-	step_right
-	step_right
-	step_right
-	step_right
-	step_right
-	step_right
-	step_end
-
-Route30RivalMovement3:
 	step_up
 	step_up
 	step_up
